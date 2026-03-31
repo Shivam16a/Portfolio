@@ -37,7 +37,7 @@ const Navbar = () => {
         <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
           <i className="fa fa-bars"></i>
         </div>
-
+{/* update */}
       </div>
     </nav>
   );
