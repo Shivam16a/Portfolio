@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "../styles/navbar.css";
+import "../styles/navbar.css"
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,30 +13,56 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`navbar-custom ${scrolled ? "scrolled" : ""}`}>
-      <div className="nav-container">
+    <nav className="navbar navbar-expand-lg fixed-top">
+      
+      <div
+        className={`${
+          scrolled ? "container glass-navbar" : "container-fluid px-4"
+        } d-flex align-items-center justify-content-between`}
+      >
 
         {/* Logo */}
-        <h2 className="logo">Shivam</h2>
+        <a className="navbar-brand fw-bold text-white" href="#">
+          Shivam
+        </a>
+
+        {/* Toggle */}
+        <button
+          className="navbar-toggler text-white"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#nav"
+        >
+          <i className="fa fa-bars"></i>
+        </button>
 
         {/* Menu */}
-        <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+        <div className="collapse navbar-collapse justify-content-end" id="nav">
+          <ul className="navbar-nav align-items-lg-center">
 
-          {/* User Icon */}
-          <li>
-            <i className="fa fa-user"></i>
-          </li>
-        </ul>
+            <li className="nav-item">
+              <a className="nav-link text-white" href="#about">About</a>
+            </li>
 
-        {/* Mobile Menu Icon */}
-        <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-          <i className="fa fa-bars"></i>
+            <li className="nav-item">
+              <a className="nav-link text-white" href="#skills">Skills</a>
+            </li>
+
+            <li className="nav-item">
+              <a className="nav-link text-white" href="#projects">Projects</a>
+            </li>
+
+            <li className="nav-item">
+              <a className="nav-link text-white" href="#contact">Contact</a>
+            </li>
+
+            <li className="nav-item ms-lg-3">
+              <i className="fa fa-user text-white"></i>
+            </li>
+
+          </ul>
         </div>
-{/* update */}
+
       </div>
     </nav>
   );
