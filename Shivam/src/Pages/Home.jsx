@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
-import About from "./About"
+import Hero from "./Hero";
 // import "../styles/navbar.css";
 
 const Home = () => {
   return (
     <>
       <Navbar />
-      <About/>
+      <Hero/>
     </>
   )
 }

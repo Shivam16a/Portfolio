@@ -3,7 +3,7 @@ import { Typewriter } from "react-simple-typewriter";
 import "../styles/about.css"
 import profile from "../assets/shi7.jpeg";
 
-const About = () => {
+const Hero = () => {
   return (
     <section className="container min-vh-100 d-flex align-items-center">
       <div className="row w-100 align-items-center">
@@ -58,4 +58,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Hero;
