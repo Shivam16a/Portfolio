@@ -7,10 +7,10 @@ const Hero = () => {
   return (
     <section className="container min-vh-100 d-flex align-items-center">
       <div className="row w-100 align-items-center">
-        
+
         {/* LEFT */}
         <div className="col-md-6 text-center text-md-start mb-5 mb-md-0">
-          
+
           <h1 className="fw-bold">
             Hi, I am <span className="text-info">Shivam Kumar</span>
           </h1>
@@ -44,12 +44,21 @@ const Hero = () => {
 
         {/* RIGHT */}
         <div className="col-md-6 d-flex justify-content-center">
-          <div className="profile-wrapper">
-            <img
-              src={profile}
-              alt="Shivam"
-              className="img-fluid rounded-circle"
-            />
+          <div className="orbit-container">
+
+            {/* Orbit Icons (OUTSIDE) */}
+            <div className="orbit">
+              <i className="fa-brands fa-react orbit-icon text-info"></i>
+              <i className="fa-brands fa-node-js orbit-icon text-success"></i>
+              <i className="fab fa-npm orbit-icon text-danger"></i>
+              <i className="fa-solid fa-database orbit-icon text-primary"></i>
+            </div>
+
+            {/* Center Image WITH wrapper */}
+            <div className="profile-wrapper">
+              <img src={profile} alt="Shivam" />
+            </div>
+
           </div>
         </div>
 
