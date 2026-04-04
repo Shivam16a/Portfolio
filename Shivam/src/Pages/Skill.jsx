@@ -13,7 +13,11 @@ const skills = [
 ];
 
 const development = [
-    {name:"Vs Code", info:"Primary code editor",icon:""}
+    { name: "VS Code", info: "Code Editor", icon: "fa-solid fa-code text-primary" },
+    { name: "Git", info: "Version Control", icon: "fa-brands fa-git-alt text-danger" },
+    { name: "GitHub", info: "Code Hosting", icon: "fa-brands fa-github text-light" },
+    { name: "Postman", info: "API Testing", icon: "fa-solid fa-paper-plane text-warning" },
+    { name: "npm", info: "package manager", icon: "fab fa-npm text-danger" }
 ];
 
 const Skills = () => {
@@ -27,7 +31,7 @@ const Skills = () => {
 
                 {/* Bootstrap Grid  technical skill*/}
                 <div className="row g-4">
-                    <h2 style={{ textAlign: "left" }}><i className="fas fa-code me-3"></i>Techenical Skill</h2>
+                    <h2 style={{ textAlign: "left" }}><i className="fas fa-code me-3 text-success"></i>Techenical Skill</h2>
                     {skills.map((skill, index) => (
                         <div key={index} className="col-6 col-md-3">
                             <motion.div
@@ -55,8 +59,8 @@ const Skills = () => {
                 </div>
                 {/* Development tools */}
                 <div className="row g-4 py-5">
-                    <h2 style={{ textAlign: "left" }}><i className="fas fa-code me-3"></i>Techenical Skill</h2>
-                    {skills.map((skill, index) => (
+                    <h2 style={{ textAlign: "left" }}><i className="fas fa-toolbox me-3 text-info"></i>Development Tools</h2>
+                    {development.map((skill, index) => (
                         <div key={index} className="col-6 col-md-3">
                             <motion.div
                                 initial={{ opacity: 0, y: 40 }}
@@ -75,7 +79,7 @@ const Skills = () => {
 
                                 {/* LEVEL */}
                                 <span className="badge bg-secondary mt-2">
-                                    {skill.level}
+                                    {skill.info}
                                 </span>
                             </motion.div>
                         </div>

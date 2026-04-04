@@ -3,12 +3,14 @@
     color: white;
 }
 
+/* Gradient Heading */
 .gradient-text {
     background: linear-gradient(90deg, #00dbde, #fc00ff);
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+/* Glass Effect */
 .glass {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 20px;
@@ -16,11 +18,22 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.about-img {
-    max-width: 300px;
+/* Profile Image */
+.profile-img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(45deg,
+            #ff00cc,
+            #3333ff,
+            #00ffcc,
+            #ffcc00);
     animation: float 3s ease-in-out infinite;
 }
 
+/* Floating Animation */
 @keyframes float {
     0% {
         transform: translateY(0px);
@@ -35,20 +48,32 @@
     }
 }
 
+/* Skill Card */
 .skill-card {
     background: rgba(255, 255, 255, 0.05);
     padding: 20px;
     border-radius: 15px;
-    text-align: center;
     transition: 0.3s;
 }
 
 .skill-card:hover {
-    transform: translateY(-10px);
     background: rgba(255, 255, 255, 0.1);
 }
 
-.skill-card i {
-    font-size: 30px;
+/* Icons */
+.icon {
+    font-size: 35px;
     margin-bottom: 10px;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    .profile-img {
+        max-width: 250px;
+        margin-top: 20px;
+    }
+
+    .glass {
+        padding: 20px;
+    }
 }
