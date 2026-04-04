@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { SiVercel, SiRender } from "react-icons/si";
 
 const skills = [
     { name: "HTML5", level: "Expert", icon: "fa-brands fa-html5 text-warning" },
@@ -17,7 +18,9 @@ const development = [
     { name: "Git", info: "Version Control", icon: "fa-brands fa-git-alt text-danger" },
     { name: "GitHub", info: "Code Hosting", icon: "fa-brands fa-github text-light" },
     { name: "Postman", info: "API Testing", icon: "fa-solid fa-paper-plane text-warning" },
-    { name: "npm", info: "package manager", icon: "fab fa-npm text-danger" }
+    { name: "npm", info: "package manager", icon: "fab fa-npm text-danger" },
+    { name: "Vercel", info: "Deployment Platform", icon: "fa-solid fa-cloud text-light" },
+    { name: "Render", info: "Backend Hosting", icon: "fa-solid fa-server text-info" }
 ];
 
 const Skills = () => {

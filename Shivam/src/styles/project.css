@@ -1,0 +1,57 @@
+.project-section {
+    min-height: 100vh;
+}
+
+/* Gradient heading */
+.gradient-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #00f5ff, #9f00ff);
+    background-clip: text;
+    color: transparent;
+}
+
+/* Card styling */
+.project-card {
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+}
+
+.project-card:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+}
+
+/* Image wrapper */
+.project-img-wrapper {
+    overflow: hidden;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Image style */
+.project-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+/* Hover zoom effect */
+.project-card:hover .project-img {
+    transform: scale(1.1);
+}
+
+/* Text tweaks */
+.project-card p {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Responsive tweak */
+@media (max-width: 576px) {
+    .gradient-text {
+        font-size: 2rem;
+    }
+}
