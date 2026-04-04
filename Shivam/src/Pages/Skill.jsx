@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { SiVercel, SiRender } from "react-icons/si";
+import "../styles/skills.css";
 
 const skills = [
     { name: "HTML5", level: "Expert", icon: "fa-brands fa-html5 text-warning" },
@@ -27,7 +27,7 @@ const Skills = () => {
     return (
         <section className="py-5 text-white" id="skills" style={{ background: "#0f172a", color: "white" }}>
             <div className="container text-center">
-                <h1 className="fw-bold mb-3">Skills & Tools</h1>
+                <h1 className="fw-bold mb-3 gradient-text">Skills & Tools</h1>
                 <p className="text-secondary mb-5">
                     The technologies I use to build modern web applications.
                 </p>

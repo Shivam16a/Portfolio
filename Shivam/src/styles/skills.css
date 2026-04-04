@@ -1,0 +1,7 @@
+.gradient-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #00f5ff, #9f00ff);
+    background-clip: text;
+    color: transparent;
+}

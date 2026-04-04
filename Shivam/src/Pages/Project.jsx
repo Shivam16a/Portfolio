@@ -52,7 +52,7 @@ const Project = () => {
             </motion.h2>
 
             <div className="row g-4">
-                {projects.map((project, index) => (
+                {projects?.map((project, index) => (
                     <div key={index} className="col-12 col-sm-6 col-lg-4">
                         <motion.div
                             className="card project-card h-100 shadow-sm"

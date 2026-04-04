@@ -1,0 +1,63 @@
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.gradient-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #00f5ff, #9f00ff);
+    background-clip: text;
+    color: transparent;
+}
+
+/* Glass */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+}
+
+.glass:hover {
+    transform: translateY(-5px);
+}
+
+/* Inputs */
+.glass-input {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: none;
+    transition: 0.3s;
+}
+
+.glass-input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(255, 106, 0, 0.6);
+}
+
+/* Button */
+.glass-btn {
+    background: linear-gradient(45deg, #ff6a00, #ee0979);
+    color: white;
+    transition: 0.3s;
+}
+
+.glass-btn:hover {
+    box-shadow: 0 0 15px rgba(255, 106, 0, 0.7);
+}
+
+/* Social hover */
+a:hover {
+    transform: scale(1.2);
+}
