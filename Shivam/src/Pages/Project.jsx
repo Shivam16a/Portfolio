@@ -1,33 +1,45 @@
 import React from "react";
 import { motion } from "framer-motion";
 import project2 from "../assets/campusmart.png";
+import project1 from "../assets/eventsphere.png";
+import project3 from "../assets/yschika.png";
+import project4 from "../assets/baatcheet.png";
 import "../styles/project.css";
 
 const projects = [
     {
-        title: "Portfolio Website",
-        desc: "Personal portfolio built using React",
-        tech: ["React", "CSS", "Framer Motion"],
-        link: "#",
+        title: "EventSphere",
+        desc: "EventSphere : Event management system (MERN stack)",
+        tech: ["React", "Express", "Node.js","MongoDB","React Router","Bootstrap"],
+        link: "https://eventsphare.vercel.app",
+        image: project1,
     },
     {
         title: "CapmusMart",
-        desc: "Full MERN stack student used resource exchange platform",
-        tech: ["MongoDB", "Express", "React", "Node"],
+        desc: "CampusMart : student resource exchange platform (MERN stack)",
+        tech: ["MongoDB", "Express", "React", "Node","Postman"],
         link: "https://campus-marketplace-dusky.vercel.app",
         image: project2,
     },
     {
-        title: "Chat App",
-        desc: "Real-time chat app with Socket.io",
-        tech: ["React", "Node", "Socket.io"],
-        link: "#",
+        title: "Yachika",
+        desc: "Yachika : Leave Application Management System (MERN stack)",
+        tech: ["React", "Node", "Express","Bootstrap","MongoDB"],
+        link: "https://leave-application-management-system.vercel.app",
+        image: project3,
+    },
+    {
+        title:"baatcheet",
+        desc:"Baatcheet : Random Chat Application (MERN Stack) under construction",
+        tech:["React","Node","MongoDB","Express","Socket.io"],
+        link:"#",
+        image:project4,
     },
 ];
 
 const Project = () => {
     return (
-        <section className="project-section container py-5">
+        <section className="project-section container py-5" id="projects">
 
             <motion.h2
                 className="text-center mb-5 gradient-text"
