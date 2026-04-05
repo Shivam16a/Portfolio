@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/hero.css";
 import profile from "../assets/shi7.jpeg";
 import { motion } from "framer-motion";
+import portfolio from "../assets/Shivam_Resume.pdf";
 import { FaReact, FaNodeJs, FaDatabase, FaTools } from "react-icons/fa";
 
 const About = () => {
@@ -65,7 +66,7 @@ const About = () => {
                             </p>
 
 
-                            <a href="#" className="btn btn-primary mt-3">
+                            <a href={portfolio} className="btn btn-primary mt-3">
                                 Download Resume
                             </a>
                         </div>
