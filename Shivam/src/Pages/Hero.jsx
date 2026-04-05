@@ -1,6 +1,6 @@
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
-import "../styles/about.css"
+import "../styles/about.css";
 import profile from "../assets/shi7.jpeg";
 
 const Hero = () => {
@@ -43,23 +43,12 @@ const Hero = () => {
         </div>
 
         {/* RIGHT */}
-        <div className="col-md-6 d-flex justify-content-center">
-          <div className="orbit-container">
+        <div className="col-md-6 d-flex justify-content-center align-items-center">
 
-            {/* Orbit Icons (OUTSIDE) */}
-            <div className="orbit">
-              <i className="fa-brands fa-react orbit-icon text-info"></i>
-              <i className="fa-brands fa-node-js orbit-icon text-success"></i>
-              <i className="fab fa-npm orbit-icon text-danger"></i>
-              <i className="fa-solid fa-database orbit-icon text-primary"></i>
-            </div>
-
-            {/* Center Image WITH wrapper */}
-            <div className="profile-wrapper">
-              <img src={profile} alt="Shivam" />
-            </div>
-
+          <div className="profile-wrapper">
+            <img src={profile} alt="Shivam" />
           </div>
+
         </div>
 
       </div>
