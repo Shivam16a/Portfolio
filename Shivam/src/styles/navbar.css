@@ -7,7 +7,7 @@ body {
     color: white !important;
 }
 
-/* Smooth transition */
+/* Navbar transition */
 .navbar {
     transition: background 0.3s ease, padding 0.3s ease;
 }
@@ -22,13 +22,30 @@ body {
     backdrop-filter: blur(10px);
 }
 
-/* Mobile Navbar (no effect) */
+/* Mobile Navbar */
 .mobile-nav {
     width: 100%;
-    border-radius: 50px;
-    padding: 30px;
+    border-radius: 0;
+    padding: 10px;
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(10px);
+}
+
+/* Active link style */
+.active-link {
+    color: #38bdf8 !important;
+    position: relative;
+}
+
+.active-link::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #38bdf8;
+    left: 0;
+    bottom: -5px;
+    border-radius: 10px;
 }
 
 /* Mobile override */
@@ -49,7 +66,7 @@ body {
     .navbar-collapse {
         background: transparent;
         margin-top: 10px;
-        border-radius: 50px;
+        border-radius: 10px;
         padding: 10px;
     }
 }

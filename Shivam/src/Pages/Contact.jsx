@@ -49,7 +49,7 @@ const Contact = () => {
     };
 
     return (
-        <section className="container py-5 contact-bg" id="contact">
+        <section className="container py-5 contact-bg vh-100" id="contact">
 
             <motion.div
                 className="row"
@@ -74,7 +74,7 @@ const Contact = () => {
                     {[
                         { icon: <FaEnvelope />, text: "shivam123hjp@gmail.com", color: "text-primary" },
                         { icon: <FaPhone />, text: "+91 8002632535", color: "text-success" },
-                        { icon: <FaMapMarkerAlt />, text: "India", color: "text-danger" }
+                        { icon: <FaMapMarkerAlt />, text: "India, Bihar", color: "text-danger" }
                     ].map((item, i) => (
                         <motion.div
                             key={i}
