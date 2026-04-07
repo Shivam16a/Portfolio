@@ -15,7 +15,7 @@ const socials = [
     },
     {
         icon: FaWhatsapp,
-        link: "https://wa.me/919876543210?text=Hello%20Shivam",
+        link: "https://wa.me/918002632535?text=Hello%20Shivam",
     },
 ];
 
