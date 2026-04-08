@@ -13,6 +13,7 @@ const skills = [
     { name: "Bootstrap CSS", level: "Advanced", icon: "fab fa-bootstrap text-info" },
 ];
 
+// development tools
 const development = [
     { name: "VS Code", info: "Code Editor", icon: "fa-solid fa-code text-primary" },
     { name: "Git", info: "Version Control", icon: "fa-brands fa-git-alt text-danger" },
