@@ -4,6 +4,7 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaWhatsapp }
 import emailjs from "@emailjs/browser";
 import "../styles/contact.css";
 
+//social midea links
 const socials = [
     {
         icon: FaGithub,
