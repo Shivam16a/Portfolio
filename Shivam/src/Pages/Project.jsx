@@ -6,6 +6,8 @@ import project3 from "../assets/yschika.png";
 import project4 from "../assets/baatcheet.png";
 import "../styles/project.css";
 
+
+//project details
 const projects = [
     {
         title: "EventSphere",
