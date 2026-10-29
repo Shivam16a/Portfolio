@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/hero.css";
 import profile from "../assets/me.jpeg";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import portfolio from "../assets/Shivam_Resume.pdf";
 import { FaReact, FaNodeJs, FaDatabase, FaTools } from "react-icons/fa";
 
