@@ -6,17 +6,17 @@ import Skills from "./Skill";
 import Project from "./Project";
 import Contact from "./Contact";
 
-const Home = () => {
+const Home = ({ data }) => {
   return (
     <>
       <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Project />
-      <Contact />
+      <Hero data={data} />
+      <About data={data} />
+      <Skills data={data} />
+      <Project data={data} />
+      <Contact data={data} />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

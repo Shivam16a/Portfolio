@@ -1,25 +1,26 @@
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
-import "../styles/about.css";
 import profile from "../assets/me.jpeg";
 
-const Hero = () => {
+const Hero = ({ data }) => {
+  const { personal } = data || {};
+
   return (
-    <section className="container min-vh-100 d-flex align-items-center">
+    <section className="container min-vh-100 d-flex align-items-center text-white">
       <div className="row w-100 align-items-center">
 
         {/* LEFT */}
         <div className="col-md-6 text-center text-md-start mb-5 mb-md-0">
 
           <h1 className="fw-bold">
-            Hi, I am <span className="text-info">Shivam Kumar</span>
+            Hi, I am <span className="text-info">{personal?.name}</span>
           </h1>
 
           <h3 className="mt-3">
             I am a{" "}
             <span className="text-success">
               <Typewriter
-                words={[
+                words={personal?.roles || [
                   "Full Stack Developer",
                   "MERN Stack Developer",
                   "Backend Developer",
@@ -44,11 +45,13 @@ const Hero = () => {
 
         {/* RIGHT */}
         <div className="col-md-6 d-flex justify-content-center align-items-center">
-
-          <div className="profile-wrapper">
-            <img src={profile} alt="Shivam" />
+          <div className="profile-wrapper shadow">
+            <img
+              src={personal?.profileImage || profile}
+              alt={personal?.name}
+              className="profile-img"
+            />
           </div>
-
         </div>
 
       </div>
