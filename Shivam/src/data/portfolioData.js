@@ -54,7 +54,7 @@ export const portfolioData = {
             title: "Baatcheet",
             desc: "Baatcheet : Random Chat Application (MERN Stack) under construction",
             tech: ["React", "Node", "MongoDB", "Express", "Socket.io"],
-            link: "#",
+            link: "https://github.com/Shivam16a/BaatCheet.git",
             image: project4,
         },
     ],

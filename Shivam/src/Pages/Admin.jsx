@@ -12,6 +12,9 @@ const Admin = ({ data, setData, GAS_URL }) => {
   const [newProj, setNewProj] = useState({ title: "", desc: "", tech: "", link: "", image: "" });
   const [newSkill, setNewSkill] = useState({ name: "", level: "", icon: "" });
   const [newTool, setNewTool] = useState({ name: "", info: "", icon: "" });
+  const [profileImgInput, setProfileImgInput] = useState("");
+  const [resumeFileInput, setResumeFileInput] = useState("");
+  const [resumeFileName, setResumeFileName] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -113,6 +116,100 @@ const Admin = ({ data, setData, GAS_URL }) => {
     }
   };
 
+  const handleProfileImageSelect = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfileImgInput(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const updateProfileImage = async (e) => {
+    e.preventDefault();
+    if (!profileImgInput) return;
+    setMsg("Uploading new profile picture to Google Drive... ⏳");
+
+    try {
+      const res = await fetch(GAS_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({
+          action: "upload_file",
+          fileData: profileImgInput,
+          fileName: "profile_image.png",
+          mimeType: "image/png"
+        })
+      });
+      const result = await res.json();
+      if (result.fileUrl) {
+        setData({
+          ...data,
+          personal: { ...data.personal, profileImage: result.fileUrl }
+        });
+        setProfileImgInput("");
+        setMsg("Profile picture updated successfully! Click 'Publish Changes' to save on Google Doc. 🚀");
+      } else {
+        setMsg("Failed to upload profile picture! ❌");
+      }
+    } catch (err) {
+      console.error("Profile image upload error", err);
+      setMsg("Error uploading profile image! ❌");
+    }
+
+    setTimeout(() => setMsg(""), 5000);
+  };
+
+  const handleResumeSelect = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setResumeFileName(file.name);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setResumeFileInput(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const updateResume = async (e) => {
+    e.preventDefault();
+    if (!resumeFileInput) return;
+    setMsg("Uploading new resume PDF to Google Drive... ⏳");
+
+    try {
+      const res = await fetch(GAS_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({
+          action: "upload_file",
+          fileData: resumeFileInput,
+          fileName: resumeFileName || "Shivam_Resume.pdf",
+          mimeType: "application/pdf"
+        })
+      });
+      const result = await res.json();
+      if (result.fileUrl) {
+        setData({
+          ...data,
+          personal: { ...data.personal, resume: result.fileUrl }
+        });
+        setResumeFileInput("");
+        setResumeFileName("");
+        setMsg("Resume updated successfully! Click 'Publish Changes' to save on Google Doc. 🚀");
+      } else {
+        setMsg("Failed to upload resume! ❌");
+      }
+    } catch (err) {
+      console.error("Resume upload error", err);
+      setMsg("Error uploading resume! ❌");
+    }
+
+    setTimeout(() => setMsg(""), 5000);
+  };
+
   const addProject = async (e) => {
     e.preventDefault();
     setMsg("Uploading image automatically to Google Drive folder... ⏳");
@@ -193,19 +290,61 @@ const Admin = ({ data, setData, GAS_URL }) => {
       </ul>
 
       {activeTab === "about" && (
-        <div className="glass p-4 rounded-4">
-          <h4 className="mb-3">Edit Personal & Bio Info</h4>
-          <div className="mb-3">
-            <label className="form-label">Name</label>
-            <input type="text" className="form-control glass-input" value={data.personal.name} onChange={(e) => setData({ ...data, personal: { ...data.personal, name: e.target.value } })} />
+        <div>
+          <div className="glass p-4 rounded-4 mb-4">
+            <h4 className="mb-3">Edit Personal & Bio Info</h4>
+            <div className="mb-3">
+              <label className="form-label">Name</label>
+              <input type="text" className="form-control glass-input" value={data.personal.name} onChange={(e) => setData({ ...data, personal: { ...data.personal, name: e.target.value } })} />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Main Bio</label>
+              <textarea className="form-control glass-input" rows="3" value={data.personal.bio} onChange={(e) => setData({ ...data, personal: { ...data.personal, bio: e.target.value } })} />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Journey Details</label>
+              <textarea className="form-control glass-input" rows="4" value={data.personal.journey || ""} onChange={(e) => setData({ ...data, personal: { ...data.personal, journey: e.target.value } })} />
+            </div>
           </div>
-          <div className="mb-3">
-            <label className="form-label">Main Bio</label>
-            <textarea className="form-control glass-input" rows="3" value={data.personal.bio} onChange={(e) => setData({ ...data, personal: { ...data.personal, bio: e.target.value } })} />
+
+          {/* PROFILE PICTURE UPDATE SECTION */}
+          <div className="glass p-4 rounded-4 mb-4">
+            <h4 className="mb-3">Change Profile Picture</h4>
+            <form onSubmit={updateProfileImage} className="row g-3 align-items-center">
+              <div className="col-12 col-md-3 text-center">
+                {data.personal.profileImage && (
+                  <img src={data.personal.profileImage} alt="Profile" className="rounded-circle border border-info mb-2" style={{ width: "100px", height: "100px", objectFit: "cover" }} />
+                )}
+              </div>
+              <div className="col-12 col-md-6">
+                <label className="form-label">Upload New Profile Image</label>
+                <input type="file" className="form-control glass-input" accept="image/*" onChange={handleProfileImageSelect} required />
+              </div>
+              <div className="col-12 col-md-3">
+                <button type="submit" className="btn btn-primary w-100 mt-md-4">Update Picture 🖼️</button>
+              </div>
+            </form>
           </div>
-          <div className="mb-3">
-            <label className="form-label">Journey Details</label>
-            <textarea className="form-control glass-input" rows="4" value={data.personal.journey || ""} onChange={(e) => setData({ ...data, personal: { ...data.personal, journey: e.target.value } })} />
+
+          {/* RESUME UPDATE SECTION */}
+          <div className="glass p-4 rounded-4">
+            <h4 className="mb-3">Upload / Update Resume (PDF)</h4>
+            <form onSubmit={updateResume} className="row g-3 align-items-center">
+              <div className="col-12 col-md-9">
+                <label className="form-label">Select New Resume PDF File</label>
+                <input type="file" className="form-control glass-input" accept="application/pdf" onChange={handleResumeSelect} required />
+                {data.personal.resume && (
+                  <div className="mt-2">
+                    <a href={data.personal.resume} target="_blank" rel="noopener noreferrer" className="text-info small">
+                      📄 View Current Resume on Cloud
+                    </a>
+                  </div>
+                )}
+              </div>
+              <div className="col-12 col-md-3">
+                <button type="submit" className="btn btn-success w-100 mt-md-4">Upload Resume 📑</button>
+              </div>
+            </form>
           </div>
         </div>
       )}
